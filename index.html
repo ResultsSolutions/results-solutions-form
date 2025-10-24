@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results Solutions Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 15px;
+      color: #444;
+      margin-bottom: 25px;
+    }
+
+    #hubspot-form {
+      margin-top: 25px;
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      color: #0a6a0a;
+      font-weight: 600;
+      margin-top: 25px;
+      font-size: 16px;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: #555;
+      font-size: 14px;
+      margin-top: 25px;
+    }
+
+    button, input[type=submit] {
+      background-color: #220059 !important;
+      color: white !important;
+      font-weight: 600;
+      border-radius: 6px !important;
+      border: none !important;
+      padding: 12px 0 !important;
+    }
+
+    button:hover, input[type=submit]:hover {
+      background-color: #3a0088 !important;
+    }
+  </style>
+
+  <!-- TrustedForm Script -->
+  <script type="text/javascript">
+    (function() {
+      var tf = document.createElement('script');
+      tf.type = 'text/javascript';
+      tf.async = true;
+      tf.src = 'https://api.trustedform.com/trustedform.js'
+              + '?provide_referrer=true'
+              + '&use_tagged_consent=true'
+              + '&l=' + new Date().getTime() + Math.random();
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(tf, s);
+    })();
+  </script>
+  <noscript><img src="https://api.trustedform.com/ns.gif" alt=""></noscript>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Get Your Case Checked for Free</h1>
+    <p class="subtitle">
+      Have you experienced injuries or illnesses from defective products, contaminated substances, medications, or digital platforms causing harm?
+    </p>
+
+    <div id="hubspot-form"></div>
+    <p class="thank-you" id="thankYouMsg">Thank you! Your form was submitted successfully.</p>
+
+    <p class="footer-note">
+      Your information is secure and will be used only for case evaluation purposes.
+    </p>
+  </div>
+
+  <!-- HubSpot Form Embed -->
+  <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/embed/v2.js"></script>
+  <script>
+    hbspt.forms.create({
+      region: "na1",
+      portalId: "50590462",
+      formId: "8db99ae1-8426-4dbc-8b26-10ca4274ca4d",
+      target: "#hubspot-form",
+      css: "",
+      onFormReady: function($form) {
+        console.log("✅ HubSpot form loaded");
+        console.log("✅ TrustedForm listener active (HubSpot Embed version)");
+      },
+      onFormSubmit: function($form) {
+        console.log("📩 Form submitted via HubSpot");
+        document.getElementById("thankYouMsg").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
